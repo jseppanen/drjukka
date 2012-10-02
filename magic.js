@@ -129,8 +129,7 @@ function random_subexpr(expr, text, seed, subst) {
 
 // Code in ~2 hours by Bemmu, idea and sound code snippet from Viznut.
 
-function makeSampleFunction() {
-    var text = document.getElementById('oneliner').value;
+function makeSampleFunction(text) {
     var oneLiner = generate_oneliner(text, 0xDEADBEEF, 1);
     var oneLiner = oneLiner.replace(/sin/g, "Math.sin");
     var oneLiner = oneLiner.replace(/cos/g, "Math.cos");
@@ -146,19 +145,19 @@ function makeSampleFunction() {
     return f;
 }
 
-function generateSound() {
+function generateSound(text) {
     var frequency = 8000;
     var seconds = 180;
 
     var sampleArray = [];
-    var f = makeSampleFunction();
+    var f = makeSampleFunction(text);
     
     for (var t = 0; t < frequency*seconds; t++) {
         // Between 0 - 65535
 //        var sample = Math.floor(Math.random()*65535);
         
         var sample = (f(t)) & 0xff;
-        sample *= 256 *.7;
+        sample *= 256 *.5;
         if (sample < 0) sample = 0;
         if (sample > 65535) sample = 65535;
         
@@ -245,9 +244,9 @@ function RIFFChunk(channels, bitsPerSample, frequency, sampleArray) {
     return [].concat(header, fmt, data);
 }
 
-function makeURL() {
+function makeURL(text) {
     var bitsPerSample = 16;    
-    var generated = generateSound();
+    var generated = generateSound(text);
     var frequency = generated[0];
     var samples = generated[1];
     var channels = 1;
