@@ -158,7 +158,7 @@ function generateSound() {
 //        var sample = Math.floor(Math.random()*65535);
         
         var sample = (f(t)) & 0xff;
-        sample *= 256;
+        sample *= 256 *.7;
         if (sample < 0) sample = 0;
         if (sample > 65535) sample = 65535;
         
@@ -268,4 +268,11 @@ function playDataURI(uri) {
     el.setAttribute("src", uri);
     el.setAttribute("controls", "controls");
     document.getElementById('player').appendChild(el);
+}
+
+function makeSpeech(txt) {
+    txt=txt.toLowerCase();
+    txt=txt.replace('jukka', 'yuccaa').replace('holm', 'hoalm')
+    txt=txt.replace(' ', ', ')
+    return generateSpeech(txt, { amplitude:1000, wordgap:1, pitch:30, speed:170 });
 }

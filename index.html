@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<script src="magic.js"></script>
+                <script src="speakGenerator.js"></script>
+                <script src="speakClient.js"></script>
 		<style>
 			#oneliner {
 				font-size:22px;
@@ -29,28 +31,35 @@
 			</form>
 			<br/><br/><span id="error"></span><br/>
 			<div id="player"></div>
+                        <div id="speech"></div>
 			<br/><br/><br/>
 		</center>
 		<script>
-			function play() {
-				try {
-					playDataURI(makeURL());
-					document.getElementById('error').innerText = "";
-				} catch (err) {
-					document.getElementById('error').innerText = ""+err;
-				}
-			}
+            var speechtimer;
+            function play() {
+                try {
+                    stop();
+                    clearInterval(speechtimer);
+                    var band=makeURL();
+                    var talent=makeSpeech(document.getElementById('oneliner').value);
+                    playDataURI(band);
+                    speechtimer=setInterval(handleWav, 20000, talent);
+                    document.getElementById('error').innerText = "";
+                } catch (err) {
+                    document.getElementById('error').innerText = ""+err;
+                }
+            }
 
-			var x = document.createElement('audio');
-			var hasAudio = typeof(x.play) !== 'undefined';
-			if (!hasAudio) {
-				alert("You don't seem to have a browser that supports audio. It's ok, you're not a bad person. But this app will now fail.");
-			}
+            var x = document.createElement('audio');
+            var hasAudio = typeof(x.play) !== 'undefined';
+            if (!hasAudio) {
+                alert("You don't seem to have a browser that supports audio. It's ok, you're not a bad person. But this app will now fail.");
+            }
 
-			document.getElementById("oneliner").focus();
-			/*document.getElementById("gen").onclick = function () {
-				play();
-			};*/
+            document.getElementById("oneliner").focus();
+            /*document.getElementById("gen").onclick = function () {
+                play();
+            };*/
 		</script>
 	</body>
 </html>
