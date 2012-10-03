@@ -5,6 +5,42 @@
                 <script src="speakGenerator.js"></script>
                 <script src="speakClient.js"></script>
 		<style>
+                        @font-face {
+                                font-family: 'fancyfont1';
+                                src: url('fonts/Barlos Random.ttf');
+                                font-weight: normal;
+                                font-style: normal;
+                        }
+                        @font-face {
+                                font-family: 'fancyfont2';
+                                src: url('fonts/Death Gothic.OTF');
+                                font-weight: normal;
+                                font-style: normal;
+                        }
+                        @font-face {
+                                font-family: 'fancyfont3';
+                                src: url('fonts/DIENASTY.TTF');
+                                font-weight: normal;
+                                font-style: normal;
+                        }
+                        @font-face {
+                                font-family: 'fancyfont4';
+                                src: url('fonts/Ghastly Panic.ttf');
+                                font-weight: normal;
+                                font-style: normal;
+                        }
+                        @font-face {
+                                font-family: 'fancyfont5';
+                                src: url('fonts/Necropsia.ttf');
+                                font-weight: normal;
+                                font-style: normal;
+                        }
+                        @font-face {
+                                font-family: 'fancyfont6';
+                                src: url('fonts/XXII Ultimate Black Metal.ttf');
+                                font-weight: normal;
+                                font-style: normal;
+                        }
                         body {
                                 margin: 0;
 				font-family: sans-serif;
@@ -20,28 +56,39 @@
 				text-shadow: 0px 0px 2px #ffffff;
 			}
 			.button {
-				font-size:18px;
-				padding:10px;
+				font-size:32px;
+                                font-family:sans-serif;
+				padding:7px;
 				width:100%;
+                                white-space: normal;
+			}
+			.smallbutton {
+				font-size:16px;
+                                font-family:fancyfont3,sans-serif;
+				padding:3px;
+				width:16%;
+                                white-space: normal;
 			}
                         center {
-                                width: 800px;
-                                height: 100%;
+                                width: 80%;
+                                min-width: 500px;
+                                min-height: 100%;
                                 margin: 0 auto -30px;
                         }
                         footer {
                                 height: 15px;
-				padding: 5px 20px;
+				padding: 7px 20px;
                                 border-top: 1px solid #E5E5E5;
-                                color: #777;
-                                font-size: 14px;
+                                color: #888;
+                                text-shadow: 0 1px white;
+                                font-size: 12px;
                                 background-color: whiteSmoke;
                         }
                         a:link, a:visited {
-                                color: #777;
+                                color: inherit;
                         }
                         a:hover {
-                                color: #333;
+                                color: #666;
                         }
 		</style>
 	</head>
@@ -50,51 +97,56 @@
 			<br/><br/>
 
 			<form onsubmit="play(text.value);return false;">
-			<input type="submit" name="text" value="Dr. Jukka Holm" class="button"/>
+			<input type="submit" name="text" value="Dr. Jukka Holm" class="button" style="font-family:fancyfont2,sans-serif"/>
 			</form>
 
 			<form onsubmit="play(text.value);return false;">
-			<input type="submit" name="text" value="A Virtual World Prototype for Interacting with a Music Collection." class="button"/>
+			<input type="submit" name="text" value="A Virtual World Prototype for Interacting with a Music Collection." class="button" style="font-family:fancyfont1,sans-serif"/>
 			</form>
 
 			<form onsubmit="play(text.value);return false;">
-			<input type="submit" name="text" value="Novel Ways To Use Audio In Games" class="button"/>
+			<input type="submit" name="text" value="Personalizing Game Content using Audio-Visual Media" class="button" style="font-family:fancyfont5,sans-serif"/>
 			</form>
 
 			<form onsubmit="play(text.value);return false;">
-			<input type="submit" name="text" value="Personalizing Game Content using Audio-Visual Media" class="button"/>
+			<input type="submit" name="text" value="Designing Interactive Music Mixing Applications For Mobile Devices" class="button" style="font-family:fancyfont4,sans-serif"/>
 			</form>
 
 			<form onsubmit="play(text.value);return false;">
-			<input type="submit" name="text" value="A Virtual World Prototype for Interacting with a Music Collection." class="button"/>
+			<input type="submit" name="text" value="Using MIDI To Modify Video Game Content" class="button" style="font-family:fancyfont6,sans-serif"/>
 			</form>
 
 			<form onsubmit="play(text.value);return false;">
-			<input type="submit" name="text" value="Associating Emoticons with Musical Genres." class="button"/>
+			<input type="submit" name="text" value="Associating Emoticons with Musical Genres." class="button" style="font-family:fancyfont4,sans-serif"/>
 			</form>
 
 			<form onsubmit="play(text.value);return false;">
-			<input type="submit" name="text" value="Using MIDI To Modify Video Game Content" class="button"/>
+			<input type="submit" name="text" value="Novel Ways To Use Audio In Games" class="button" style="font-family:fancyfont3,sans-serif"/>
 			</form>
 
 			<form onsubmit="play(text.value);return false;">
-			<input type="submit" name="text" value="Implementation And Evaluation Of A Background Music Reactive Game" class="button"/>
+			<input type="submit" name="text" value="Implementation And Evaluation Of A Background Music Reactive Game" class="button" style="font-family:fancyfont2,sans-serif"/>
 			</form>
 
 			<form onsubmit="play(text.value);return false;">
-			<input type="submit" name="text" value="Method and Arrangement for Providing Customized Audio Characteristics to Cellular Terminals." class="button"/>
+			<input type="submit" name="text" value="Method and Arrangement for Providing Customized Audio Characteristics to Cellular Terminals." class="button" style="font-family:fancyfont1,sans-serif"/>
 			</form>
 
 			<form onsubmit="play(text.value);return false;">
-			<input type="submit" name="text" value="Designing Interactive Music Mixing Applications For Mobile Devices" class="button"/>
+			<input type="submit" name="text" value="Popularity Of Music Player Parameters and Features" class="button" style="font-family:fancyfont5,sans-serif"/>
 			</form>
 
 			<form onsubmit="play(text.value);return false;">
-			<input type="submit" name="text" value="Popularity Of Music Player Parameters and Features" class="button"/>
+			<input type="submit" name="text" value="Associating Avatars With Musical Genres." class="button" style="font-family:fancyfont6,sans-serif"/>
 			</form>
 
-			<form onsubmit="play(text.value);return false;">
-			<input type="submit" name="text" value="Associating Avatars With Musical Genres." class="button"/>
+			<form onsubmit="return false;">
+			<input type="submit" name="text" value="viljakaisa Aaltonen" class="smallbutton" onclick="play(this.value);return false"/>
+			<input type="submit" name="text" value="Juha arrasvuori" class="smallbutton" onclick="play(this.value);return false"/>
+			<input type="submit" name="text" value="antti Eronen" class="smallbutton" onclick="play(this.value);return false"/>
+			<input type="submit" name="text" value="mikko heikkinen" class="smallbutton" onclick="play(this.value);return false"/>
+			<input type="submit" name="text" value="arto lehtiniemi" class="smallbutton" onclick="play(this.value);return false"/>
+			<input type="submit" name="text" value="jarno seppänen" class="smallbutton" onclick="play(this.value);return false"/>
 			</form>
 
 			<form onsubmit="play(text.value);return false;">
@@ -106,7 +158,7 @@
 			<br/><br/><br/>
 		</center>
                 <footer>
-                Music by <a href="http://www.bemmu.com/music/index.html">Algorithmic Symphonies</a>,
+                Sound by <a href="http://www.bemmu.com/music/index.html">Oneliner Algorithmic Symphonies</a>,
                 speech by <a href="http://syntensity.com/static/espeak.html">speak.js</a>.
                 </footer>
 		<script>
